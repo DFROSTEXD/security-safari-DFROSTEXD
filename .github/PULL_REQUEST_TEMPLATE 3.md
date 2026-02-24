@@ -1,14 +1,14 @@
 ## Vulnerability fixed
 
-<!-- What type of vulnerability is this? (e.g., XSS, code injection, hardcoded secret) -->
+Outdated dependency with known CVE
 
 ## Where was it?
 
-<!-- File path and line number where you found it -->
+In "package.json" on line 14
 
 ## Why is it dangerous?
 
-<!-- Explain what an attacker could do with this vulnerability -->
+
 
 ## How did you fix it?
 
