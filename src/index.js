@@ -1,8 +1,8 @@
 import { API_KEY } from "./config.js";
 
-// VULNERABILITY: innerHTML with user input
+// Fixed: Use textContent instead of innerHTML to prevent XSS
 function displayMessage(userInput) {
-  document.getElementById("output").innerHTML = userInput;
+  document.getElementById("output").textContent = userInput;
 }
 
 // VULNERABILITY: eval with user input
