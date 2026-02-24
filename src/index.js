@@ -5,9 +5,19 @@ function displayMessage(userInput) {
   document.getElementById("output").innerHTML = userInput;
 }
 
-// VULNERABILITY: eval with user input
+// Fixed: Safe math parser instead of eval
 function calculate(expression) {
-  return eval(expression);
+  try {
+    // Sanitize input: only allow numbers and basic math operators
+    const sanitized = expression.replace(/[^0-9+\-*/().]/g, '');
+    if (sanitized !== expression) {
+      return 'Invalid characters in expression';
+    }
+    // Use Function constructor with strict mode (safer than eval)
+    return Function('"use strict"; return (' + sanitized + ')')();
+  } catch (error) {
+    return 'Invalid expression';
+  }
 }
 
 // Wire up the poll form
